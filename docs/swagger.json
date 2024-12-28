@@ -1,0 +1,392 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "The Hope House API",
+    "version": "1.0.0",
+    "description": "API for managing The Hope House Modules"
+  },
+  "paths": {
+    "/api/testimonials": {
+      "get": {
+        "summary": "Get all testimonials",
+        "tags": ["Testimonials"],
+        "responses": {
+          "200": {
+            "description": "A list of testimonials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Testimonial"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new testimonial",
+        "tags": ["Testimonials"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Testimonial"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Testimonial created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Testimonial"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/api/testimonials/{id}": {
+      "get": {
+        "summary": "Get a testimonial by ID",
+        "tags": ["Testimonials"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the testimonial",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A testimonial",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Testimonial"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Testimonial not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a testimonial by ID",
+        "tags": ["Testimonials"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the testimonial",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Testimonial"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Testimonial updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Testimonial"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Testimonial not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a testimonial by ID",
+        "tags": ["Testimonials"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the testimonial",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Testimonial deleted successfully"
+          },
+          "404": {
+            "description": "Testimonial not found"
+          }
+        }
+      }
+    },
+    "/api/faqs": {
+      "get": {
+        "summary": "Get all FAQs",
+        "tags": ["FAQs"],
+        "responses": {
+          "200": {
+            "description": "A list of FAQs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Faq"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new FAQ",
+        "tags": ["FAQs"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Faq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "FAQ created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Faq"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation error"
+          }
+        }
+      }
+    },
+    "/api/faqs/{id}": {
+      "get": {
+        "summary": "Get an FAQ by ID",
+        "tags": ["FAQs"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the FAQ",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "An FAQ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Faq"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "FAQ not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update an FAQ by ID",
+        "tags": ["FAQs"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the FAQ",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Faq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "FAQ updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Faq"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "FAQ not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an FAQ by ID",
+        "tags": ["FAQs"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the FAQ",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "FAQ deleted successfully"
+          },
+          "404": {
+            "description": "FAQ not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Testimonial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Doe"
+          },
+          "designation": {
+            "type": "string",
+            "example": "CEO"
+          },
+          "message": {
+            "type": "string",
+            "example": "This service was fantastic!"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://example.com/image.jpg"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "ID of the user who created the testimonial"
+          },
+          "updatedBy": {
+            "type": "string",
+            "description": "ID of the user who updated the testimonial"
+          }
+        },
+        "required": ["name", "message", "createdBy", "updatedBy"],
+        "example": {
+          "name": "John Doe",
+          "designation": "CEO",
+          "message": "This service was fantastic!",
+          "image": "https://example.com/image.jpg",
+          "createdAt": "2024-11-01T00:00:00Z",
+          "updatedAt": "2024-11-01T00:00:00Z",
+          "createdBy": "user123",
+          "updatedBy": "user123"
+        }
+      },
+      "Faq": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "example": "What is the process for volunteering?"
+          },
+          "answer": {
+            "type": "string",
+            "example": "To volunteer, please sign up on our website."
+          },
+          "category": {
+            "type": "string",
+            "enum": ["General", "Volunteering", "Donations"],
+            "example": "General"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": ["question", "answer"],
+        "example": {
+          "question": "What is the process for volunteering?",
+          "answer": "To volunteer, please sign up on our website.",
+          "category": "Volunteering",
+          "createdAt": "2024-11-01T00:00:00Z"
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Testimonials",
+        "description": "Operations related to testimonials"
+      },
+      {
+        "name": "FAQs",
+        "description": "Operations related to FAQs"
+      }
+    ]
+  }
+}
